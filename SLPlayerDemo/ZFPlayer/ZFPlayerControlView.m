@@ -110,7 +110,6 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 - (instancetype)init {
     self = [super init];
     if (self) {
-
         [self addSubview:self.placeholderImageView];
         [self addSubview:self.topImageView];
         [self addSubview:self.bottomImageView];
@@ -152,8 +151,17 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterPlayground) name:UIApplicationDidBecomeActiveNotification object:nil];
 
         [self listeningRotating];
+        
     }
     return self;
+}
+
+-(void)setZhibo:(BOOL)zhibo{
+    _zhibo = zhibo;
+    if(zhibo)
+        _videoSlider.userInteractionEnabled = NO;
+    else
+        _videoSlider.userInteractionEnabled = YES;
 }
 
 - (void)dealloc {

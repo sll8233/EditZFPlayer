@@ -80,6 +80,11 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
 @property (nonatomic, assign) BOOL                    playerPushedOrPresented;
 
 /**
+ 是否是直播类型，如果是则不能拖动
+ */
+@property(nonatomic,assign)BOOL zhibo;
+
+/**
  *  单例，用于列表cell上多个视频
  *
  *  @return ZFPlayer

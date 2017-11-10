@@ -12,6 +12,9 @@
 #import "ZFPlayer.h"
 #import "UINavigationController+ZFFullscreenPopGesture.h"
 @interface MovieViewContr ()<ZFPlayerDelegate>
+{
+    ZFPlayerControlView *_controlV;
+}
 /** 播放器View的父视图*/
 @property (weak, nonatomic)  IBOutlet UIView *playerFatherView;
 @property (strong, nonatomic) ZFPlayerView *playerView;
@@ -62,8 +65,15 @@
      }];
      */
     
-    // 自动播放，默认不自动播放
-    [self.playerView autoPlayTheVideo];
+    ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
+    controlView.zhibo = YES;
+    _controlV = controlView;
+    self.playerView.zhibo = YES;
+    [_playerView playerControlView: controlView playerModel:self.playerModel];
+    
+    
+    
+  
 }
 
 // 返回值要必须为NO
@@ -130,16 +140,14 @@
          *   // 控制层传nil，默认使用ZFPlayerControlView(如自定义可传自定义的控制层)
          *   // 等效于 [_playerView playerModel:self.playerModel];
          ******************************************************************************************/
-        [_playerView playerControlView:nil playerModel:self.playerModel];
+        
         
         // 设置代理
         _playerView.delegate = self;
         
         //（可选设置）可以设置视频的填充模式，内部设置默认（ZFPlayerLayerGravityResizeAspect：等比例填充，直到一个维度到达区域边界）
         // _playerView.playerLayerGravity = ZFPlayerLayerGravityResize;
-        
-        // 打开下载功能（默认没有这个功能）
-        _playerView.hasDownload    = YES;
+
         
         // 打开预览图
         self.playerView.hasPreviewView = YES;
@@ -152,12 +160,15 @@
 
 
 - (IBAction)playNewVideo:(UIButton *)sender {
+    _controlV.zhibo = NO;
+    self.playerView.zhibo = NO;
     self.playerModel.title            = @"这是新播放的视频";
     self.playerModel.videoURL         = [NSURL URLWithString:@"http://baobab.wdjcdn.com/1456665467509qingshu.mp4"];
     // 设置网络封面图
     self.playerModel.placeholderImageURLString = @"http://img.wdjimg.com/image/video/447f973848167ee5e44b67c8d4df9839_0_0.jpeg";
     // 从xx秒开始播放视频
     // self.playerModel.seekTime         = 15;
+    
     [self.playerView resetToPlayNewVideo:self.playerModel];
 }
 

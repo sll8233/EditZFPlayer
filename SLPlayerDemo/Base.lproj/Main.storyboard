@@ -38,11 +38,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCU-Ej-NN7">
-                                <rect key="frame" x="0.0" y="64" width="215" height="316"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waj-rk-mB8">
                                 <rect key="frame" x="265" y="111" width="60" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,12 +97,25 @@
                                     <constraint firstAttribute="width" secondItem="Vgq-jy-PSc" secondAttribute="height" multiplier="11:9" id="sIf-ye-b4c"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vL3-27-fmc">
+                                <rect key="frame" x="30" y="401" width="315" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="L7g-dz-5sx"/>
+                                </constraints>
+                                <state key="normal" title="换"/>
+                                <connections>
+                                    <action selector="playNewVideo:" destination="pGj-j7-fRS" eventType="touchUpInside" id="rzq-3V-6BQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Vgq-jy-PSc" firstAttribute="top" secondItem="LC0-DV-PK8" secondAttribute="bottom" id="3Mg-Wz-k16"/>
+                            <constraint firstItem="vL3-27-fmc" firstAttribute="leading" secondItem="ne2-G6-tqi" secondAttribute="leading" constant="30" id="VRp-xD-jGF"/>
                             <constraint firstItem="Vgq-jy-PSc" firstAttribute="leading" secondItem="ne2-G6-tqi" secondAttribute="leading" id="oRm-Tc-xPU"/>
+                            <constraint firstItem="vL3-27-fmc" firstAttribute="top" secondItem="Vgq-jy-PSc" secondAttribute="bottom" constant="30" id="qVg-hJ-HRE"/>
                             <constraint firstAttribute="trailing" secondItem="Vgq-jy-PSc" secondAttribute="trailing" id="s3Q-hM-ffV"/>
+                            <constraint firstAttribute="trailing" secondItem="vL3-27-fmc" secondAttribute="trailing" constant="30" id="z2N-6R-HEi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ae1-vd-wMl"/>
@@ -117,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yH4-Kz-2vC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="36"/>
+            <point key="canvasLocation" x="1045.5999999999999" y="35.532233883058474"/>
         </scene>
     </scenes>
 </document>

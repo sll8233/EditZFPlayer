@@ -27,4 +27,9 @@
 
 @interface ZFPlayerControlView : UIView 
 
+/**
+ 是否是直播类型，如果是则不能拖动
+ */
+@property(nonatomic,assign)BOOL zhibo;
+
 @end

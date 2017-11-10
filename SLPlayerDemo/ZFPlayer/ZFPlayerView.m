@@ -1120,6 +1120,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
         case UIGestureRecognizerStateChanged:{ // 正在移动
             switch (self.panDirection) {
                 case PanDirectionHorizontalMoved:{
+                    if(self.zhibo) break;
                     [self horizontalMoved:veloctyPoint.x]; // 水平移动的方法只要x方向的值
                     break;
                 }
@@ -1138,6 +1139,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
             switch (self.panDirection) {
                 case PanDirectionHorizontalMoved:{
                     self.isPauseByUser = NO;
+                    if(!self.zhibo)
                     [self seekToTime:self.sumTime completionHandler:nil];
                     // 把sumTime滞空，不然会越加越多
                     self.sumTime = 0;
